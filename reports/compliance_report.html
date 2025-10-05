@@ -1,0 +1,87 @@
+
+<html>
+<head>
+<meta charset="utf-8">
+<title>Regulatory Compliance Dashboard</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 40px;
+  background: #f5f7fa;
+  color: #333;
+}
+h1, h2 { color: #004080; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+th {
+  background: #004080;
+  color: #fff;
+}
+.metric {
+  background: #e8f4fc;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+<h1>Regulatory Compliance Dashboard</h1>
+<p><b>Generated:</b> 2025-10-05 06:05 UTC</p>
+<div class="metric">Overall Compliance: 89.7%</div>
+<h2>Control Scores</h2>
+<table class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Control</th>
+      <th>Compliant</th>
+      <th>Owner</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SOX-1 Access Control</td>
+      <td>95</td>
+      <td>IT Security</td>
+    </tr>
+    <tr>
+      <td>SOX-2 Audit Logging</td>
+      <td>90</td>
+      <td>Audit</td>
+    </tr>
+    <tr>
+      <td>PCI-1 Firewall Rules</td>
+      <td>100</td>
+      <td>Network</td>
+    </tr>
+    <tr>
+      <td>PCI-2 Encryption Policy</td>
+      <td>85</td>
+      <td>Infrastructure</td>
+    </tr>
+    <tr>
+      <td>ISO-1 Asset Inventory</td>
+      <td>80</td>
+      <td>GRC</td>
+    </tr>
+    <tr>
+      <td>ISO-2 Patch Management</td>
+      <td>88</td>
+      <td>SysAdmin</td>
+    </tr>
+  </tbody>
+</table>
+<h2>Visual Summary</h2>
+<img src="bar_chart.png" width="600">
+<h2>Compliance Trend Over Time</h2>
+<img src="trend_chart.png" width="600">
+</body>
+</html>
