@@ -1,45 +1,36 @@
-name: Compliance Report Generator
+name: Compliance Automation CI
 
 on:
   push:
     branches: [ main ]
   schedule:
-    - cron: '0 0 * * *'  # runs daily at midnight UTC
-  workflow_dispatch:
+    - cron: '0 2 * * *'  # Runs daily at 2AM UTC
 
 jobs:
   compliance:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout Repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install Dependencies
-        run: pip install pandas matplotlib
+      - name: Install dependencies
+        run: |
+          pip install pandas matplotlib
 
-      - name: Generate Compliance Report
+      - name: Run compliance scoring
         run: python3 scripts/compliance_scoring.py
 
-      - name: Upload Dashboard Artifact
+      - name: Upload compliance artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: compliance-dashboard
-          path: reports/
-
-      - name: Send Email Report (Optional)
-        if: ${{ success() }}
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.gmail.com
-          server_port: 465
-          username: ${{ secrets.SMTP_USER }}
-          password: ${{ secrets.SMTP_PASS }}
-          subject: "✅ Compliance Report Updated"
-          to: "YOUR_EMAIL@example.com"
-          from: "GitHub CI Bot <YOUR_EMAIL@example.com>"
-          attachments: reports/compliance_report.html
+          name: compliance_report
+          path: |
+            reports/compliance_report.html
+            reports/bar_chart.png
+            reports/trend_chart.png
