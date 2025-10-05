@@ -1,0 +1,6 @@
+Control ID,Description,Framework,Category,Weight,ExpectedValue,CheckMethod
+AC-001,MFA enabled for privileged accounts,ISO27001 A.9.4.2,Access Control,5,Enabled,PowerShell
+AC-002,Password complexity >= 12,NIST CSF PR.AC-1,Access Control,4,MinLength:12,PowerShell
+LG-001,Security logs retained >=90 days,PCI-DSS 10.7,Logging,3,RetentionDays:90,SystemQuery
+PT-001,Patch compliance >=95% within SLA,SOX 404,Patch Management,5,>=95%,WSUS/SCCM
+EN-001,Disk encryption enabled on servers,ISO27001 A.10.1.1,Encryption,4,Enabled,SystemQuery
